@@ -45,7 +45,7 @@ try:
   content = response_data["choices"][0]["message"]["content"]
   return content
 except Exception as e:
-return f"Error: {str(e)}"
+  return f"Error: {str(e)}"
 
 
 

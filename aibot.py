@@ -66,7 +66,7 @@ if "messages" not in st.session_state:
   st.session_state.messages = []
 
 # Show the dashboard image once at the top
-
+# Show the dashboard image once at the top
 
 
 # Display chat messages from history on app rerun

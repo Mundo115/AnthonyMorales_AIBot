@@ -36,7 +36,8 @@ headers = {
   "Accept": "application/json"
 }
 # Make the API request
-response = requests.post(api_url, headers=headers, json=payload)
+response = requests.post(api_url, headers=headers, json=payload
+)
 if response.status_code == 429:
   return "You have hit the rate limit for the API. Please try again later."
 try:

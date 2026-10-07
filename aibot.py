@@ -49,24 +49,18 @@ def ai_ask(prompt, data=None, temperature=0.5, max_tokens=250, model="mistral-sm
   except Exception as e:
     return f"Error: {str(e)}"
 
-
-
 def response_generator():
-  response = ai_ask("Pretend you are a very friendly and helpful person.Please provide a response given the provided context. Please provide theresponse only with no before or after commentary.",
-                    data=st.session_state.messages,
-                   api_key=st.secrets["apikey"])
+  response = ai_ask("Pretend you are a very friendly and helpful person.
+Please provide a response given the provided context. Please provide the response only with no before or after commentary.",
+data=st.session_state.messages,api_key=st.secrets["apikey"])
   for word in response.split():
-    yield word + " "
-    time.sleep(0.05)
-
+  yield word + " "
+  time.sleep(0.05)
 
 st.title("AI chat")
 # Initialize chat history
 if "messages" not in st.session_state:
   st.session_state.messages = []
-
-# Show the dashboard image once at the top
-# Show the dashboard image once at the top
 
 
 # Display chat messages from history on app rerun

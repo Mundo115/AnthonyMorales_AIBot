@@ -8,7 +8,7 @@ def response_generator():
     api_key=st.secrets["apikey"])
   for word in response.split():
       yield word + " "
-      time.sleep(0.05
+      time.sleep(0.05)
 
 st.title("Simple chat")
 # Initialize chat history

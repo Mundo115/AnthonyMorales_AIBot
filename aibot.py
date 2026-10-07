@@ -4,11 +4,11 @@ import time
 
 def response_generator():
   response = ai_ask("Pretend you are a very friendly and helpful person.Please provide a response given the provided context. Please provide theresponse only with no before or after commentary.",
-data=st.session_state.messages,
-api_key=st.secrets["apikey"])
-for word in response.split():
-yield word + " "
-time.sleep(0.05
+    data=st.session_state.messages,
+    api_key=st.secrets["apikey"])
+  for word in response.split():
+      yield word + " "
+      time.sleep(0.05
 
 st.title("Simple chat")
 # Initialize chat history

@@ -22,7 +22,7 @@ if data is not None:
     data_str = json.dumps(data, indent=2)
     message += f"\n\nData to analyze:\n{data_str}"
 # Prepare the API request payload
-  payload = {
+payload = {
     "messages": [{"role": "user", "content": message}],
     "temperature": float(temperature),
     "model": model,

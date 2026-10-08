@@ -6,7 +6,7 @@ import time
 import requests
 import json
 
-def ai_ask(prompt, data=None, temperature=0.5, max_tokens=250, model="mistral-small-latest", api_key=None, api_url="https://api.mistral.ai/v1/chat/completions"):
+def ai_ask(prompt, data=None, temperature=0.5, max_tokens=250, model="open-mistral-nemo", api_key=None, api_url="https://api.mistral.ai/v1/chat/completions"):
     if api_key is None or api_url is None:
         if "idToken" in globals():
             api_key = globals()["idToken"]
@@ -77,16 +77,10 @@ for message in st.session_state.messages:
 
 # Accept user input
 if prompt := st.chat_input("What is up?"):
-  # Display user message in chat message container
-  with st.chat_message("user"):
-    st.markdown(prompt)
+with st.chat_message("user"):
+st.markdown(prompt)
+st.session_state.messages.append({"role": "user", "content": prompt})
 
-  # Add user message to chat history
-  st.session_state.messages.append({"role": "user", "content": prompt})
-
-  # Display assistant response in chat message container
-  with st.chat_message("assistant"):
-    response = st.write_stream(response_generator())
-
-  # Add assistant response to chat history
-  st.session_state.messages.append({"role": "assistant", "content": response})
+with st.chat_message("assistant"):
+response = st.write_stream(response_generator())
+st.session_state.messages.append({"role": "assistant", "content": response})

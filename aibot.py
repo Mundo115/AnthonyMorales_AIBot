@@ -92,3 +92,13 @@ if prompt := st.chat_input("What is up?"):
 
   # Add assistant response to chat history
   st.session_state.messages.append({"role": "assistant", "content": response})
+
+
+
+curl https://api.mistral.ai/v1/chat/completions \
+  -H "Authorization: Bearer $MISTRAL_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "mistral-small-latest",
+    "messages": [{"role": "user", "content": "Hello, Mistral!"}]
+  }'

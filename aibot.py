@@ -44,6 +44,7 @@ def ai_ask(prompt, data=None, temperature=0.5, max_tokens=250, model="mistral-sm
   response = requests.post(api_url, headers=headers, json=payload)
   if response.status_code == 429:
     return  response.text
+    print("API URL:", api_url)
     
   try:
     response.raise_for_status()
